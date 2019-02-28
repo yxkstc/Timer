@@ -1,0 +1,33 @@
+import java.applet.AudioClip; 
+import java.io.*; 
+import java.applet.Applet; 
+import java.awt.Frame; 
+import java.net.MalformedURLException; 
+import java.net.URL;
+public class Music extends Frame{ 
+URL cb; 
+File f = new File("F:\\inetlli idea\\04 项目\\Timer\\Music\\告白气球.wav"); //引号里面的是音乐文件所在的绝对鹿筋
+AudioClip aau; 
+  
+public Music(){ 
+super();
+}
+public void play() {
+ try { 
+ cb = f.toURL(); 
+ aau = Applet.newAudioClip(cb); 
+ // TODO Auto-generated method stub
+ aau.play();
+ } catch (MalformedURLException e) { 
+ e.printStackTrace(); 
+ } 
+ }
+public void stop() {
+ try { 
+ // TODO Auto-generated method stub
+ aau.stop();
+} catch (MalformedURLException e) { 
+e.printStackTrace(); 
+} 
+}
+}

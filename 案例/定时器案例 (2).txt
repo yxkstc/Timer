@@ -1,0 +1,40 @@
+https://blog.csdn.net/huakai_sun/article/details/78605636
+3.周期定时执行某个任务。
+
+有时候我们希望一个任务被安排在凌晨3点（访问较少时）周期性的执行一个比较耗费资源的任务，可以使用下面方法设定每天在固定时间执行一次任务。
+上面写的内容有不严谨的地方，比如对于scheduleAtFixedRate方法，当我们要执行的任务大于我们指定的执行间隔时会怎么样呢？
+
+对于中文API中的注释，我们可能会被忽悠，认为无论怎么样，它都会按照我们指定的间隔进行执行，其实当执行任务的时间大于我们指定的间隔时间时，它并不会在指定间隔时开辟一个新的线程并发执行这个任务。而是等待该线程执行完毕。
+/** 
+ * 每天晚上8点执行一次 
+ * 每天定时安排任务进行执行 
+ */  
+public static void executeEightAtNightPerDay() {  
+    ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);  
+    long oneDay = 24 * 60 * 60 * 1000;  
+    long initDelay  = getTimeMillis("20:00:00") - System.currentTimeMillis();  
+    initDelay = initDelay > 0 ? initDelay : oneDay + initDelay;  
+  
+    executor.scheduleAtFixedRate(  
+            new EchoServer(),  
+            initDelay,  
+            oneDay,  
+            TimeUnit.MILLISECONDS);  
+}  
+[java] view plain copy
+/** 
+ * 获取指定时间对应的毫秒数 
+ * @param time "HH:mm:ss" 
+ * @return 
+ */  
+private static long getTimeMillis(String time) {  
+    try {  
+        DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH:mm:ss");  
+        DateFormat dayFormat = new SimpleDateFormat("yy-MM-dd");  
+        Date curDate = dateFormat.parse(dayFormat.format(new Date()) + " " + time);  
+        return curDate.getTime();  
+    } catch (ParseException e) {  
+        e.printStackTrace();  
+    }  
+    return 0;  
+}  
