@@ -362,7 +362,7 @@ public class Configure {
     //判断是否假期
     public boolean isVacation(){
          //获取系统日期，加工数据为格式XX月XX日
-        DateFormat dateFormat = new SimpleDateFormat("M月dd日");
+        DateFormat dateFormat = new SimpleDateFormat("M月d日");
         Date date=new Date();
         String nowDate=dateFormat.format(date);
         //初始化是否
