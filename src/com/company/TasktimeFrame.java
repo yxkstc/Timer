@@ -241,7 +241,6 @@ public class TasktimeFrame extends JFrame {
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String nowDate=dateFormat.format(date);
                 bofang.setText("定时器启动:"+nowDate);//显示时间
-                System.out.println(date);
                 Configure cf=new Configure();//初始化对象
                 boolean isjiari=cf.isVacation();//判断是否假日
                 try {

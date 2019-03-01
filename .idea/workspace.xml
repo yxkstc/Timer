@@ -8,6 +8,21 @@
   <component name="ChangeListManager">
     <list default="true" id="08f94a3f-cf77-4626-963e-11fff437d275" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/log/timer.log" afterPath="$PROJECT_DIR$/log/timer.log" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/ClockText.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Configure$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Configure$XmlTableModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Configure.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Log4jUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Main.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Missionplan.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Setholidays$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Setholidays.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/TasktimeFrame$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/TasktimeFrame.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/Yearofday.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/Timer/com/company/shuomingwenj.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TasktimeFrame.java" afterPath="$PROJECT_DIR$/src/com/company/TasktimeFrame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,24 +40,15 @@
       <file leaf-file-name="TasktimeFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/TasktimeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="245" column="21" lean-forward="false" selection-start-line="245" selection-start-column="21" selection-end-line="245" selection-end-column="21" />
               <folding>
                 <element signature="docComment;class#TasktimeFrame#0" expanded="false" />
                 <element signature="method#TasktimeFrame#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#menuItem1ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#renwuStarActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#renwuEndActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#menuItem2ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#menuItem5ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#menuItem3ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#menuItem4ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#initComponents#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#play#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#Stardingshiqi#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#initAddress#0;class#TasktimeFrame#0" expanded="false" />
-                <element signature="method#initDurationhms#0;class#TasktimeFrame#0" expanded="false" />
-                <marker date="1551362992418" expanded="false" signature="7536:8184" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#8468#8469#0" expanded="true" />
+                <element signature="e#8494#8495#0" expanded="true" />
+                <marker date="1551402135478" expanded="false" signature="2956:7524" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1551402135478" expanded="false" signature="7536:8184" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -152,10 +158,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,24 +174,39 @@
             <path>
               <item name="Timer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Timer" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Timer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Timer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Timer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Timer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Timer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Timer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -392,6 +410,8 @@
       <workItem from="1551349091795" duration="79000" />
       <workItem from="1551360208205" duration="2866000" />
       <workItem from="1551363208352" duration="88000" />
+      <workItem from="1551401921404" duration="218000" />
+      <workItem from="1551404285228" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="2019.2.19 17:28">
       <created>1550568659541</created>
@@ -411,41 +431,41 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115513000" />
+    <option name="totallyTimeSpent" value="115789000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17050068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15290934" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17084283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="720" y="221" width="480" height="590" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991881" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32687926" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32611638" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -633,13 +653,6 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/com/company/TasktimeFrame.class" />
     <entry file="file://$PROJECT_DIR$/out/production/Timer/com/company/TasktimeFrame.class" />
-    <entry file="file://$PROJECT_DIR$/log/timer.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/out/production/Timer/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Setholidays.jfd">
@@ -747,26 +760,24 @@
         <state paletteWidth="150" propertiesWidth="312" structureHeight="312" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/log/timer.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2381">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TasktimeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="245" column="21" lean-forward="false" selection-start-line="245" selection-start-column="21" selection-end-line="245" selection-end-column="21" />
           <folding>
             <element signature="docComment;class#TasktimeFrame#0" expanded="false" />
             <element signature="method#TasktimeFrame#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#menuItem1ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#renwuStarActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#renwuEndActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#menuItem2ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#menuItem5ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#menuItem3ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#menuItem4ActionPerformed#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#initComponents#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#play#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#Stardingshiqi#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#initAddress#0;class#TasktimeFrame#0" expanded="false" />
-            <element signature="method#initDurationhms#0;class#TasktimeFrame#0" expanded="false" />
-            <marker date="1551362992418" expanded="false" signature="7536:8184" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#8468#8469#0" expanded="true" />
+            <element signature="e#8494#8495#0" expanded="true" />
+            <marker date="1551402135478" expanded="false" signature="2956:7524" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1551402135478" expanded="false" signature="7536:8184" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
