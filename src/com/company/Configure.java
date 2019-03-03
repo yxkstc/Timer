@@ -1,6 +1,7 @@
 package com.company;
 import org.xml.sax.helpers.AttributesImpl;
 
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import javax.xml.transform.OutputKeys;
@@ -11,6 +12,7 @@ import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.File;
@@ -27,6 +29,8 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 import java.io.UnsupportedEncodingException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Configure {
@@ -384,9 +388,95 @@ public class Configure {
         return sf;
     }
 
-    public static void main(String[] args) {
-        Configure c=new Configure();
-        c.isVacation();
+    //判断是否日期格式
+    public boolean isValidDate(String str){
+        boolean convertSuccess=true;
+        // 指定日期格式为四位年/两位月份/两位日期，注意yyyy/MM/dd区分大小写；
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+        // 设置lenient为false. 否则SimpleDateFormat会比较宽松地验证日期，比如2007/02/29会被接受，并转换成2007/03/01
+            if (str.equals("")){//输入空不验证
+
+            }else {
+                format.setLenient(false);
+                format.parse(str);
+            }
+        } catch (ParseException e) {
+            // e.printStackTrace();
+            // 如果throw java.text.ParseException或者NullPointerException，就说明格式不对
+            convertSuccess=false;
+        }
+
+        return convertSuccess;
+    }
+    //判断是否正整数
+    public boolean isNumeric(String string){
+        Pattern pattern = Pattern.compile("[1-9]*");
+        return pattern.matcher(string).matches();
+    }
+
+    //判断是否为空
+    public boolean isKong(String string){
+       return string.length()>0;
+    }
+
+    /**
+     * 根据开始，结束时间计算两个时间段相差多少分钟
+     *
+     * @param nowDate
+     * @param endDate
+     * @return
+     */
+    public  long getDatePoor(String nowDate, String endDate) {
+        long nh = 1000 * 60;
+        long diff =0;
+        Date nowDate1= null;
+        try {
+            nowDate1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(nowDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date endDate1= null;
+        try {
+            endDate1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //判断开始，结束时间相差多少秒
+        if (nowDate1.getTime()>endDate1.getTime()){
+            diff=nowDate1.getTime()-endDate1.getTime();
+        }else {
+            diff=endDate1.getTime()-nowDate1.getTime();
+        }
+
+        //相差多少分子
+        return diff/nh;
+    }
+
+    /**
+     * 根据开始，结束时间判断两个时间段大小
+     *
+     * @param nowDate
+     * @param endDate
+     * @return
+     */
+    public  boolean getDatePoorQH(String nowDate, String endDate) {
+        long nh = 1000 * 60;
+        Date nowDate1= null;
+        try {
+            nowDate1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(nowDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date endDate1= null;
+        try {
+            endDate1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //判断开始，结束时间相差多少秒
+        return nowDate1.getTime()<endDate1.getTime();
     }
 
 }

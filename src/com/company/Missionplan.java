@@ -7,6 +7,7 @@ package com.company;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -18,30 +19,144 @@ import javax.swing.*;
 public class Missionplan extends JFrame {
     public Missionplan() {
         initComponents();
-     try{
-        initValue();
+        try{
+            initValue();
         }catch (IOException IE){
-         IE.printStackTrace();
-         Log4jUtil.info("Missionplan.initComponents()-初始化异常！");
-     }
+            IE.printStackTrace();
+            Log4jUtil.info("Missionplan.initComponents()-初始化异常！");
+        }
 
     }
 
     private void saveActionPerformed(ActionEvent e) throws IOException {
         // TODO add your code here
-        if(renwuName1.getText().trim().length()>0 && shijian1.getText().trim().length()>0 &&zhixingtime1.getText().trim().length()>0
-                && renwuluj1.getText().trim().length()>0 && renwuName2.getText().trim().length()>0 && shijian2.getText().trim().length()>0
-                && zhixingtime2.getText().trim().length()>0 && renwuluj2.getText().trim().length()>0 &&renwuName3.getText().trim().length()>0
-                && shijian3.getText().trim().length()>0 && zhixingtime3.getText().trim().length()>0 &&renwuluj3.getText().trim().length()>0)
-        {
-            Configure cfi=new Configure();
-            cfi.setGetProperties(renwuName1.getText(),shijian1.getText(),zhixingtime1.getText(),renwuluj1.getText(),renwuName2.getText(),shijian2.getText(),zhixingtime2.getText(),renwuluj2.getText(),renwuName3.getText(),shijian3.getText(),zhixingtime3.getText(),renwuluj3.getText());
-            JOptionPane.showMessageDialog(null,"设置成功");
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "任务名称：请输入中文，不能为空，任务时间：输入格式为2018-12-01 17:30:00，执行任务程序请选择路径，执行时间请选择，单位为分钟", "错误", JOptionPane.ERROR_MESSAGE);
+        Configure cf=new Configure();
+        String rwn1=renwuName1.getText().trim();
+        String rwn2=renwuName2.getText().trim();
+        String rwn3=renwuName3.getText().trim();
+        String sj1=shijian1.getText().trim();
+        String sj2=shijian2.getText().trim();
+        String sj3=shijian3.getText().trim();
+        String zxt1=zhixingtime1.getText().trim();
+        String zxt2=zhixingtime2.getText().trim();
+        String zxt3=zhixingtime3.getText().trim();
+        String lujing1=renwuluj1.getText().trim();
+        String lujing2=renwuluj1.getText().trim();
+        String lujing3=renwuluj1.getText().trim();
+        //字段验证：任务必须设置1个，任务名称设置后本行必须填写完整，执行时间必须为日期格式，2个以上任务时间段内任务不能冲突。只有未设置任务，
+        // 任务时间及执行时间才能为空
+        if (cf.isKong(rwn1)){
+            if(!cf.isKong(sj1)){
+                JOptionPane.showMessageDialog(null, "第一行任务时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(zxt1)){
+                JOptionPane.showMessageDialog(null, "第一行执行时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(lujing1)){
+                JOptionPane.showMessageDialog(null, "第一行任务路径必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+        }else if (!cf.isKong(rwn2)&&!cf.isKong(rwn3)){
+            JOptionPane.showMessageDialog(null, "任务必须设置一个", "错误", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if (cf.isKong(rwn2)){
+            if(!cf.isKong(sj2)){
+                JOptionPane.showMessageDialog(null, "第二行任务时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(zxt2)){
+                JOptionPane.showMessageDialog(null, "第二行执行时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(lujing2)){
+                JOptionPane.showMessageDialog(null, "第二行任务路径必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+        }else if (!cf.isKong(rwn1)&&!cf.isKong(rwn3)){
+            JOptionPane.showMessageDialog(null, "任务必须设置一个", "错误", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (cf.isKong(rwn3)){
+            if(!cf.isKong(sj3)){
+                JOptionPane.showMessageDialog(null, "第三行任务时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(zxt3)){
+                JOptionPane.showMessageDialog(null, "第三行执行时间必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if(!cf.isKong(lujing3)){
+                JOptionPane.showMessageDialog(null, "第三行任务路径必须设置", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+        }else if (!cf.isKong(rwn1)&&!cf.isKong(rwn2)){
+            JOptionPane.showMessageDialog(null, "任务必须设置一个", "错误", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!cf.isValidDate(sj1)){
+            JOptionPane.showMessageDialog(null, "任务开始时间列第一行请输入日期格式yyyy-mm-dd hh:ss:mm", "错误", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!cf.isValidDate(sj2)){
+            JOptionPane.showMessageDialog(null, "任务开始时间列第二行请输入日期格式yyyy-mm-dd hh:ss:mm", "错误", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!cf.isValidDate(sj3)){
+            JOptionPane.showMessageDialog(null, "任务开始时间列第三行请输入日期格式yyyy-mm-dd hh:ss:mm", "错误", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (cf.isKong(sj1)){
+            if (!cf.isNumeric(zxt1)||zxt1.length()==0){
+                JOptionPane.showMessageDialog(null, "任务执行时间列第一行请输入大于1的正整数", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        if (cf.isKong(sj2)){
+            if (!cf.isNumeric(zxt2)||zxt2.length()==0){
+                JOptionPane.showMessageDialog(null, "任务执行时间列第二行请输入大于1的正整数", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        if (cf.isKong(sj3)){
+            if (!cf.isNumeric(zxt3)||zxt3.length()==0){
+                JOptionPane.showMessageDialog(null, "任务执行时间列第三行请输入大于1的正整数", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        if (cf.isKong(sj1)&&cf.isKong(sj2)){
+                if(cf.getDatePoor(sj1,sj2)<=(cf.getDatePoorQH(sj1,sj2)?Long.valueOf(zxt1):Long.valueOf(zxt2))){
+                JOptionPane.showMessageDialog(null, "任务持续执行中，不能执行另一个任务，请修改任务开始时间或执行时间", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        if (cf.isKong(sj1)&&cf.isKong(sj3)){
+            if(cf.getDatePoor(sj1,sj3)<=(cf.getDatePoorQH(sj1,sj3)?Long.valueOf(zxt1):Long.valueOf(zxt3))){
+                JOptionPane.showMessageDialog(null, "任务持续执行中，不能执行另一个任务，请修改任务开始时间或执行时间", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        if (cf.isKong(sj2)&&cf.isKong(sj3)){
+            if(cf.getDatePoor(sj2,sj3)<=(cf.getDatePoorQH(sj2,sj3)?Long.valueOf(zxt2):Long.valueOf(zxt3))){
+                JOptionPane.showMessageDialog(null, "任务持续执行中，不能执行另一个任务，请修改任务开始时间或执行时间", "错误", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
+
+
+
+        Configure cfi=new Configure();
+        cfi.setGetProperties(renwuName1.getText(),shijian1.getText(),zhixingtime1.getText(),renwuluj1.getText(),renwuName2.getText(),shijian2.getText(),zhixingtime2.getText(),renwuluj2.getText(),renwuName3.getText(),shijian3.getText(),zhixingtime3.getText(),renwuluj3.getText());
+        JOptionPane.showMessageDialog(null,"设置成功");
+        this.dispose();
+
     }
 
     private void button1ActionPerformed(ActionEvent e) {
@@ -99,100 +214,103 @@ public class Missionplan extends JFrame {
 
         label1.setText("\u4efb\u52a1\u540d\u79f0"); //NON-NLS
         contentPane.add(label1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         label2.setText("\u4efb\u52a1\u5f00\u59cb\u65f6\u95f4"); //NON-NLS
         contentPane.add(label2, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         label5.setText("执行时间（分钟）"); //NON-NLS
         contentPane.add(label5, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         label3.setText("\u4efb\u52a1\u8def\u5f84"); //NON-NLS
         contentPane.add(label3, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         label4.setText("\u4e0a\u4f20\u6309\u94ae"); //NON-NLS
         contentPane.add(label4, new GridBagConstraints(4, 0, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
         contentPane.add(renwuName1, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(shijian1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(zhixingtime1, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(renwuluj1, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         button1.setText("\u6d4f\u89c8"); //NON-NLS
         button1.addActionListener(e -> button1ActionPerformed(e));
         contentPane.add(button1, new GridBagConstraints(4, 1, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
         contentPane.add(renwuName2, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(shijian2, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(zhixingtime2, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(renwuluj2, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         button2.setText("\u6d4f\u89c8"); //NON-NLS
         button2.addActionListener(e -> button2ActionPerformed(e));
         contentPane.add(button2, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
         contentPane.add(renwuName3, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(shijian3, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(zhixingtime3, new GridBagConstraints(2, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         contentPane.add(renwuluj3, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
         button3.setText("\u6d4f\u89c8"); //NON-NLS
         button3.addActionListener(e -> button3ActionPerformed(e));
         contentPane.add(button3, new GridBagConstraints(4, 3, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 5, 0), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 0), 0, 0));
 
         save.setText("\u4fdd\u5b58"); //NON-NLS
 
-            save.addActionListener(e -> {
-                try {
-                    saveActionPerformed(e);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                    Log4jUtil.info("Missionplan.save-保存异常");
-                }
-            });
+        save.addActionListener(e -> {
+            try {
+                saveActionPerformed(e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+                Log4jUtil.info("Missionplan.save-保存异常");
+            }
+        });
 
         contentPane.add(save, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
-            GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-            new Insets(0, 0, 0, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 5), 0, 0));
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+        renwuluj1.setEditable(false);
+        renwuluj2.setEditable(false);
+        renwuluj3.setEditable(false);
     }
     private void initValue() throws IOException {
         Properties p = new Configure().getGetProperties();

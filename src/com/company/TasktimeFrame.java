@@ -6,6 +6,7 @@ package com.company;
 
 import java.awt.*;
 import java.awt.event.*;
+import javax.print.DocFlavor;
 import javax.swing.*;
 import java.applet.AudioClip;
 import java.io.*;
@@ -26,7 +27,6 @@ public class TasktimeFrame extends JFrame {
     public TasktimeFrame() {
         initComponents();
         initAddress();
-
     }
     //任务设置
     private void menuItem1ActionPerformed(ActionEvent e) {
@@ -218,8 +218,8 @@ public class TasktimeFrame extends JFrame {
     private JButton renwuEnd;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private AudioClip aau;
-    private File f;
-    private URL cb;
+    //private File f;
+    //private URL cb;
     private String duration="";//结束时间
     private String durationhms="";//结束时间，HH:MM:SS
     private ScheduledExecutorService service;//定时器
@@ -297,7 +297,7 @@ public class TasktimeFrame extends JFrame {
                     else if(aau!=null&&label4.getText().length()>0 && durationhms.equals(jshsm)){
                         stop();
                         label4.setText("");
-                        Log4jUtil.info("结束"+rwmc2+"成功 "+jshsm);
+                        Log4jUtil.info("结束"+rwmc2+"成功 "+nowDate);
                     }
                     //任务3结束
                     else if(aau!=null&&label6.getText().length()>0 && durationhms.equals(jshsm)){
@@ -320,10 +320,25 @@ public class TasktimeFrame extends JFrame {
     }
 
     private void initAddress(){
+        Date date=new Date();
+        File f = null;
+        URL cb = null;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String nowtime=dateFormat.format(date);
+        String nowtimesub=nowtime.substring(nowtime.length()-8,nowtime.length());
         try{
+            /*for(int i=1;i<=3;i++){//根据时间判断选取音乐文件路径
+                String shijian=new Configure().getGetProperties().getProperty("shijian"+i).trim();
+                String shijianSub=shijian.substring(shijian.length()-8,shijian.length());
+               if (shijianSub.equals(nowtimesub)){
+                   f=new File(new Configure().getGetProperties().getProperty("renwuluj"+i));
+               }else {
+                   f=new File(new Configure().getGetProperties().getProperty("renwuluj1"));
+               }
+            }*/
             f=new File(new Configure().getGetProperties().getProperty("renwuluj1"));
-            cb = f.toURL( );
-            aau = Applet.newAudioClip(cb);
+            cb = f.toURL();
+            aau = Applet.newAudioClip(cb);//注意：final方法修饰常量
         }catch (MalformedURLException e) {
             e.printStackTrace();
             Log4jUtil.info("音乐播放异常");
@@ -332,7 +347,6 @@ public class TasktimeFrame extends JFrame {
             Log4jUtil.info("音乐被删除或路径错误");
         }
     }
-
     private void initDurationhms(Date date,DateFormat dateFormat,String time){
         Date date1=new Date();
         long nowMillisecond=date.getTime();//初始化当前时间，单位秒

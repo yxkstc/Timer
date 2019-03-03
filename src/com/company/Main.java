@@ -10,6 +10,5 @@ public class Main {
         tf.setLocationRelativeTo(null);
         tf.setResizable(false);
         tf.setDefaultCloseOperation(3);
-        Log4jUtil.info("程序启动");
     }
 }
